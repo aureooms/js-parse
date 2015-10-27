@@ -1,0 +1,32 @@
+{
+  "name": "aureooms-es-parse",
+  "version": "1.0.0",
+  "description": "Easily parse various input formats.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha -t 10000 --compilers js:babel/register --recursive ./test/src -R spec" ,
+    "cover": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -t 10000 --compilers js:babel/register --recursive ./test/src -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aureooms/es-parse"
+  },
+  "keywords": [
+    "parse"
+  ],
+  "author": "aureooms",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/aureooms/es-parse/issues"
+  },
+  "homepage": "https://github.com/aureooms/es-parse#readme",
+  "devDependencies": {
+    "aureooms-js-itertools": "^1.3.0",
+    "babel": "^5.8.29",
+    "codeclimate-test-reporter": "^0.1.1",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.0",
+    "mocha": "^2.3.3",
+    "should": "^7.1.1"
+  }
+}

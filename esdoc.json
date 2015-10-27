@@ -1,0 +1,21 @@
+{
+  "source": "./src",
+  "destination": "./doc",
+  "access": ["public", "protected", "private"],
+  "debug": false,
+  "index": "./README.md",
+  "package": "./package.json",
+  "title": "aureooms-es-parse",
+  "test": {
+    "type": "mocha",
+    "source": "./test/src"
+  },
+  "plugins": [
+  ],
+  "manual": {
+    "overview": ["./manual/overview.md"],
+    "installation": ["./manual/installation.md"],
+    "usage": ["./manual/usage.md"],
+    "example": ["./manual/example.md"]
+  }
+}
