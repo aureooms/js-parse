@@ -7,7 +7,7 @@
   "package": "./package.json",
   "title": "aureooms-es-parse",
   "test": {
-    "type": "mocha",
+    "type": "ava",
     "source": "./test/src"
   },
   "plugins": [

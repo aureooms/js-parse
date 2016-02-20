@@ -1,93 +1,89 @@
-import 'should' ;
-import * as parse from '../../index.js' ;
+import 'babel-polyfill' ;
+import test from 'ava' ;
+import * as parse from '../../src/index.js' ;
 
-/** @test {parse} */
-describe( 'parse:' , ( ) => {
+/**
+ * @test {parse#from}
+ * @test {parse#to}
+ */
+test( 'can read from string' , t => {
 
-	/**
-	 * @test {parse#from}
-	 * @test {parse#to}
-	 */
-	it( 'can read from string' , ( ) => {
+	let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
+	let stream = parse.from.string( input ) ;
+	t.same(parse.to.string( stream ), input ) ;
 
-		let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
-		let stream = parse.from.string( input ) ;
-		parse.to.string( stream ).should.be.eql( input ) ;
+} ) ;
 
-	} ) ;
+/**
+ * @test {parse#split}
+ */
+test( 'can split stream' , t => {
 
-	/**
-	 * @test {parse#split}
-	 */
-	it( 'can split stream' , ( ) => {
+	let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
+	let stream = parse.from.string( input ) ;
+	stream = parse.split( stream , ' \t\n' ) ;
+	t.same(parse.to.string( stream.read( ) ), '1' ) ;
+	t.same(parse.to.string( stream.read( ) ), ',' ) ;
+	t.same(parse.to.string( stream.read( ) ), '22' ) ;
+	t.same(parse.to.string( stream.read( ) ), ',' ) ;
+	t.same(parse.to.string( stream.read( ) ), '333' ) ;
+	t.same(parse.to.string( stream.read( ) ), ',' ) ;
+	t.same(parse.to.string( stream.read( ) ), '-44' ) ;
+	t.same(parse.to.string( stream.read( ) ), ',' ) ;
+	t.same(parse.to.string( stream.read( ) ), '-5' ) ;
 
-		let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
-		let stream = parse.from.string( input ) ;
-		stream = parse.split( stream , ' \t\n' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( '1' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( ',' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( '22' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( ',' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( '333' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( ',' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( '-44' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( ',' ) ;
-		parse.to.string( stream.read( ) ).should.be.eql( '-5' ) ;
+} ) ;
 
-	} ) ;
+/**
+ * @test {parse#ignore}
+ */
+test( 'can ignore tokens from stream' , t => {
 
-	/**
-	 * @test {parse#ignore}
-	 */
-	it( 'can ignore tokens from stream' , ( ) => {
+	let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
+	let stream = parse.from.string( input ) ;
+	stream = parse.ignore( stream , ' \t\n' ) ;
+	t.same(parse.to.string( stream ), '1,22,333,-44,-5' ) ;
 
-		let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
-		let stream = parse.from.string( input ) ;
-		stream = parse.ignore( stream , ' \t\n' ) ;
-		parse.to.string( stream ).should.be.eql( '1,22,333,-44,-5' ) ;
+} ) ;
 
-	} ) ;
+/**
+ * @test {parse#csv}
+ */
+test( 'can parse csv' , t => {
 
-	/**
-	 * @test {parse#csv}
-	 */
-	it( 'can parse csv' , ( ) => {
+	let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
+	let stream = parse.from.iterable( input ) ;
+	stream = parse.csv( stream ) ;
+	stream = parse.map( parse.to.string , stream ) ;
 
-		let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
-		let stream = parse.from.iterable( input ) ;
-		stream = parse.csv( stream ) ;
-		stream = parse.map( parse.to.string , stream ) ;
+	t.same(parse.to.array( stream ),[ '1' , '22' , '333' , '-44' , '-5' ] ) ;
 
-		parse.to.array( stream ).should.be.eql( [ '1' , '22' , '333' , '-44' , '-5' ] ) ;
+} ) ;
 
-	} ) ;
+/**
+ * @test {parse#tsv}
+ */
+test( 'can parse tsv' , t => {
 
-	/**
-	 * @test {parse#tsv}
-	 */
-	it( 'can parse tsv' , ( ) => {
+	let input = '\n\n\n    1 \t22\n\t 333\t\n-44 \t-5 \t\n  \t' ;
+	let stream = parse.from.iterable( input ) ;
+	stream = parse.tsv( stream ) ;
+	stream = parse.map( parse.to.string , stream ) ;
 
-		let input = '\n\n\n    1 \t22\n\t 333\t\n-44 \t-5 \t\n  \t' ;
-		let stream = parse.from.iterable( input ) ;
-		stream = parse.tsv( stream ) ;
-		stream = parse.map( parse.to.string , stream ) ;
+	t.same(parse.to.array( stream ), [ '1' , '22' , '333' , '-44' , '-5' ] ) ;
 
-		parse.to.array( stream ).should.be.eql( [ '1' , '22' , '333' , '-44' , '-5' ] ) ;
+} ) ;
 
-	} ) ;
+/**
+ * @test {parse#integer}
+ */
+test( 'can parse integers' , t => {
 
-	/**
-	 * @test {parse#integer}
-	 */
-	it( 'can parse integers' , ( ) => {
+	let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
+	let stream = parse.from.iterable( input ) ;
+	stream = parse.csv( stream ) ;
+	stream = parse.map( parse.integer , stream ) ;
 
-		let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
-		let stream = parse.from.iterable( input ) ;
-		stream = parse.csv( stream ) ;
-		stream = parse.map( parse.integer , stream ) ;
-
-		parse.to.array( stream ).should.be.eql( [ 1 , 22 , 333 , -44 , -5 ] ) ;
-
-	} ) ;
+	t.same(parse.to.array( stream ), [ 1 , 22 , 333 , -44 , -5 ] ) ;
 
 } ) ;
