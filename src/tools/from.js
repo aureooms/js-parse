@@ -51,6 +51,7 @@ export class StreamFromCallable {
 /**
  * Converts a string to a stream.
  * @param {String} _string the string to convert
+ * @example parse.from.string( '1,3,2' )
  */
 export const string = iterable ;
 
