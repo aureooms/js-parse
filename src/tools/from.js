@@ -1,18 +1,21 @@
 
 /**
  * Converts an iterable to a stream.
+ * @kind function
  * @param {Iterable} _iterable the iterable to convert
  */
 export const fromiterable = _iterable => fromiterator( _iterable[Symbol.iterator]( ) ) ;
 
 /**
  * Converts an iterator to a stream.
+ * @kind function
  * @param {Iterator} _iterator the iterator to convert
  */
 export const fromiterator = _iterator => fromcallable( _iterator.next.bind( _iterator ) ) ;
 
 /**
  * Converts a callable to a stream.
+ * @kind function
  * @param {Callable} _callable the callable to convert
  */
 export const fromcallable = _callable => new StreamFromCallable( _callable ) ;
@@ -50,6 +53,7 @@ export class StreamFromCallable {
 
 /**
  * Converts a string to a stream.
+ * @kind function
  * @param {String} _string the string to convert
  * @example fromstring( '1,3,2' )
  */
@@ -57,6 +61,7 @@ export const fromstring = fromiterable ;
 
 /**
  * Converts an array to a stream.
+ * @kind function
  * @param {Array} _array the array to convert
  */
 export const fromarray = fromiterable ;

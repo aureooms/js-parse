@@ -23,4 +23,7 @@ export function skip ( stream , toskip ) {
 
 }
 
-export const blanks = stream => skip( stream , ' \t\n' ) ;
+/**
+ * @kind function
+ */
+export const skipblanks = stream => skip( stream , ' \t\n' ) ;
