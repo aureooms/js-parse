@@ -1,7 +1,7 @@
 
-import { iterable as from_iterable } from './from' ;
+import { fromiterable } from './from' ;
 
-import exhaust from './exhaust' ;
+import { exhaust } from './exhaust' ;
 
 /**
  * Splits a stream into a stream of streams according to some set of
@@ -9,9 +9,9 @@ import exhaust from './exhaust' ;
  * @param {Stream} stream
  * @param {Iterable} sep
  */
-export default function split ( stream , sep ) {
+export function split ( stream , sep ) {
 
-	return from_iterable( _split( stream , sep ) ) ;
+	return fromiterable( _split( stream , sep ) ) ;
 
 }
 
@@ -27,7 +27,7 @@ export function* _split ( stream , sep ) {
 
 		if ( _sep.has( token ) ) continue ;
 
-		const group = from_iterable( ( function* ( ) {
+		const group = fromiterable( ( function* ( ) {
 
 			yield token ;
 

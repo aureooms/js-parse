@@ -1,6 +1,6 @@
 
-import { iterable as from_iterable } from './from' ;
-import { iterable as to_iterable } from './to' ;
+import { fromiterable } from './from' ;
+import { toiterable } from './to' ;
 import { map as _map } from 'aureooms-js-itertools' ;
 
 /**
@@ -8,8 +8,8 @@ import { map as _map } from 'aureooms-js-itertools' ;
  * @param {Callable} callable the callable to apply
  * @param {Stream} stream the stream to process
  */
-export default function map ( callable , stream ) {
+export function map ( callable , stream ) {
 
-	return from_iterable( _map( callable , to_iterable( stream ) ) ) ;
+	return fromiterable( _map( callable , toiterable( stream ) ) ) ;
 
 }

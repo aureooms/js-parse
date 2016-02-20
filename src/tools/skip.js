@@ -5,7 +5,7 @@
  * @param {Stream} stream
  * @param {Iterable} toskip
  */
-export default function skip ( stream , toskip ) {
+export function skip ( stream , toskip ) {
 
 	const _toskip = new Set( toskip ) ;
 
