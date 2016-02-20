@@ -3,7 +3,7 @@
  * Converts as many tokens as possible into an integer.
  * @param {Stream} stream the stream to read from
  */
-export default function integer ( stream ) {
+export function integer ( stream ) {
 
 	let i = 0 ;
 	let s = 1 ;

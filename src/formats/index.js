@@ -1,8 +1,12 @@
 
-import _integer from './integer' ;
-import _csv from './csv' ;
-import _tsv from './tsv' ;
+export * from './integer' ;
+export * from './csv' ;
+export * from './tsv' ;
 
-export const integer = _integer;
-export const csv = _csv ;
-export const tsv = _tsv ;
+//import _integer from './integer' ;
+//import _csv from './csv' ;
+//import _tsv from './tsv' ;
+
+//export const integer = _integer;
+//export const csv = _csv ;
+//export const tsv = _tsv ;
