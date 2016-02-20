@@ -2,7 +2,7 @@
   "name": "aureooms-es-parse",
   "version": "1.0.1",
   "description": "Easily parse various input formats.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/.bin/ava ./test/src",
     "cover": "./node_modules/.bin/nyc --reporter=lcov npm test"
