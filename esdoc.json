@@ -1,6 +1,6 @@
 {
   "source": "./src",
-  "destination": "./doc",
+  "destination": "./gh-pages",
   "access": ["public", "protected", "private"],
   "debug": false,
   "index": "./README.md",
@@ -10,8 +10,6 @@
     "type": "ava",
     "source": "./test/src"
   },
-  "plugins": [
-  ],
   "manual": {
     "overview": ["./doc/manual/overview.md"],
     "installation": ["./doc/manual/installation.md"],

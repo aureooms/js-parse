@@ -1,7 +1,7 @@
 
-import { fromiterable } from './from' ;
+import { fromiterable } from '../from' ;
 
-import { exhaust } from './exhaust' ;
+import { exhaust } from '../exhaust' ;
 
 /**
  * Splits a stream into a stream of streams according to some set of
