@@ -1,5 +1,5 @@
-# es-parse
-Easily parse various input formats. See [documentation](https://doc.esdoc.org/github.com/aureooms/es-parse).
+# [aureooms/es-parse](https://aureooms.github.io/es-parse)
+Easily parse various input formats. See [documentation](https://aureooms.github.io/es-parse).
 
 [![NPM license](http://img.shields.io/npm/l/aureooms-es-parse.svg?style=flat)](https://raw.githubusercontent.com/aureooms/es-parse/master/LICENSE)
 [![NPM version](http://img.shields.io/npm/v/aureooms-es-parse.svg?style=flat)](https://www.npmjs.org/package/aureooms-es-parse)
@@ -10,4 +10,4 @@ Easily parse various input formats. See [documentation](https://doc.esdoc.org/gi
 [![Code Climate](http://img.shields.io/codeclimate/github/aureooms/es-parse.svg?style=flat)](https://codeclimate.com/github/aureooms/es-parse)
 [![NPM downloads per month](http://img.shields.io/npm/dm/aureooms-es-parse.svg?style=flat)](https://www.npmjs.org/package/aureooms-es-parse)
 [![GitHub issues](http://img.shields.io/github/issues/aureooms/es-parse.svg?style=flat)](https://github.com/aureooms/es-parse/issues)
-[![Inline docs](https://doc.esdoc.org/github.com/aureooms/es-parse/badge.svg)](https://doc.esdoc.org/github.com/aureooms/es-parse/source.html)
+[![Documentation](https://aureooms.github.io/es-parse/badge.svg)](https://aureooms.github.io/es-parse/source.html)
