@@ -1,0 +1,85 @@
+{
+  "coverage": "76.92%",
+  "expectCount": 26,
+  "actualCount": 20,
+  "files": {
+    "src/tools/from/from.js": {
+      "expectCount": 11,
+      "actualCount": 6,
+      "undocumentLines": [
+        31,
+        30,
+        29,
+        34,
+        46
+      ]
+    },
+    "src/tools/split/split.js": {
+      "expectCount": 2,
+      "actualCount": 1,
+      "undocumentLines": [
+        18
+      ]
+    },
+    "src/tools/chain.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/formats/csv.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/tools/exhaust.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/tools/ignore.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/formats/integer.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/tools/map.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/tools/skip/skip.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/tools/to/toarray.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/tools/to/toiterable.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/tools/to/toiterator.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/tools/to/tostring.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/formats/tsv.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    }
+  }
+}

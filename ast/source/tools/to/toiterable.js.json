@@ -1,0 +1,502 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": {
+        "type": "FunctionDeclaration",
+        "id": {
+          "type": "Identifier",
+          "name": "toiterable",
+          "range": [
+            112,
+            122
+          ],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 17
+            },
+            "end": {
+              "line": 5,
+              "column": 27
+            }
+          }
+        },
+        "params": [
+          {
+            "type": "Identifier",
+            "name": "stream",
+            "range": [
+              125,
+              131
+            ],
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 30
+              },
+              "end": {
+                "line": 5,
+                "column": 36
+              }
+            }
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "body": [
+            {
+              "type": "WhileStatement",
+              "test": {
+                "type": "Literal",
+                "value": true,
+                "raw": "true",
+                "range": [
+                  146,
+                  150
+                ],
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 9
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 13
+                  }
+                }
+              },
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "VariableDeclaration",
+                    "declarations": [
+                      {
+                        "type": "VariableDeclarator",
+                        "id": {
+                          "type": "Identifier",
+                          "name": "token",
+                          "range": [
+                            164,
+                            169
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 9,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 9,
+                              "column": 13
+                            }
+                          }
+                        },
+                        "init": {
+                          "type": "CallExpression",
+                          "callee": {
+                            "type": "MemberExpression",
+                            "computed": false,
+                            "object": {
+                              "type": "Identifier",
+                              "name": "stream",
+                              "range": [
+                                172,
+                                178
+                              ],
+                              "loc": {
+                                "start": {
+                                  "line": 9,
+                                  "column": 16
+                                },
+                                "end": {
+                                  "line": 9,
+                                  "column": 22
+                                }
+                              }
+                            },
+                            "property": {
+                              "type": "Identifier",
+                              "name": "read",
+                              "range": [
+                                179,
+                                183
+                              ],
+                              "loc": {
+                                "start": {
+                                  "line": 9,
+                                  "column": 23
+                                },
+                                "end": {
+                                  "line": 9,
+                                  "column": 27
+                                }
+                              }
+                            },
+                            "range": [
+                              172,
+                              183
+                            ],
+                            "loc": {
+                              "start": {
+                                "line": 9,
+                                "column": 16
+                              },
+                              "end": {
+                                "line": 9,
+                                "column": 27
+                              }
+                            }
+                          },
+                          "arguments": [],
+                          "range": [
+                            172,
+                            186
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 9,
+                              "column": 16
+                            },
+                            "end": {
+                              "line": 9,
+                              "column": 30
+                            }
+                          }
+                        },
+                        "range": [
+                          164,
+                          186
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 9,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 30
+                          }
+                        }
+                      }
+                    ],
+                    "kind": "const",
+                    "range": [
+                      158,
+                      188
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 9,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 32
+                      }
+                    }
+                  },
+                  {
+                    "type": "IfStatement",
+                    "test": {
+                      "type": "BinaryExpression",
+                      "operator": "===",
+                      "left": {
+                        "type": "Identifier",
+                        "name": "token",
+                        "range": [
+                          197,
+                          202
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 7
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 12
+                          }
+                        }
+                      },
+                      "right": {
+                        "type": "Literal",
+                        "value": null,
+                        "raw": "null",
+                        "range": [
+                          207,
+                          211
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 11,
+                            "column": 17
+                          },
+                          "end": {
+                            "line": 11,
+                            "column": 21
+                          }
+                        }
+                      },
+                      "range": [
+                        197,
+                        211
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 11,
+                          "column": 7
+                        },
+                        "end": {
+                          "line": 11,
+                          "column": 21
+                        }
+                      }
+                    },
+                    "consequent": {
+                      "type": "BreakStatement",
+                      "label": null,
+                      "range": [
+                        214,
+                        221
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 11,
+                          "column": 24
+                        },
+                        "end": {
+                          "line": 11,
+                          "column": 31
+                        }
+                      }
+                    },
+                    "alternate": null,
+                    "range": [
+                      192,
+                      221
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 11,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 11,
+                        "column": 31
+                      }
+                    }
+                  },
+                  {
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "type": "YieldExpression",
+                      "argument": {
+                        "type": "Identifier",
+                        "name": "token",
+                        "range": [
+                          231,
+                          236
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 13,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 13,
+                            "column": 13
+                          }
+                        }
+                      },
+                      "delegate": false,
+                      "range": [
+                        225,
+                        236
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 13,
+                          "column": 2
+                        },
+                        "end": {
+                          "line": 13,
+                          "column": 13
+                        }
+                      }
+                    },
+                    "range": [
+                      225,
+                      238
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 13,
+                        "column": 2
+                      },
+                      "end": {
+                        "line": 13,
+                        "column": 15
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  153,
+                  242
+                ],
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 16
+                  },
+                  "end": {
+                    "line": 15,
+                    "column": 2
+                  }
+                }
+              },
+              "range": [
+                138,
+                242
+              ],
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 1
+                },
+                "end": {
+                  "line": 15,
+                  "column": 2
+                }
+              }
+            }
+          ],
+          "range": [
+            134,
+            245
+          ],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 39
+            },
+            "end": {
+              "line": 17,
+              "column": 1
+            }
+          }
+        },
+        "generator": true,
+        "expression": false,
+        "range": [
+          102,
+          245
+        ],
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 7
+          },
+          "end": {
+            "line": 17,
+            "column": 1
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Converts a stream to an iterable.\n * @param {Stream} stream the stream to read from\n ",
+            "range": [
+              0,
+              94
+            ],
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": []
+      },
+      "specifiers": [],
+      "source": null,
+      "range": [
+        95,
+        245
+      ],
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 17,
+          "column": 1
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Converts a stream to an iterable.\n * @param {Stream} stream the stream to read from\n ",
+          "range": [
+            0,
+            94
+          ],
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 0
+            },
+            "end": {
+              "line": 4,
+              "column": 3
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    95,
+    245
+  ],
+  "loc": {
+    "start": {
+      "line": 5,
+      "column": 0
+    },
+    "end": {
+      "line": 17,
+      "column": 1
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "*\n * Converts a stream to an iterable.\n * @param {Stream} stream the stream to read from\n ",
+      "range": [
+        0,
+        94
+      ],
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 3
+        }
+      }
+    }
+  ]
+}

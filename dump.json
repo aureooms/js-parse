@@ -1,0 +1,1830 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/formats/csv.js",
+    "memberof": null,
+    "longname": "src/formats/csv.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nimport { split } from './../tools/split' ;\nimport { ignore } from './../tools/ignore' ;\n\n/**\n * Converts a stream of comma separated values to a stream of values.\n * @param {Stream} stream the stream to read from\n */\nexport function csv ( stream ) {\n\treturn split( ignore( stream , ' \\t\\n' ) , ',' ) ;\n}\n"
+  },
+  {
+    "__docId__": 1,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "csv",
+    "memberof": "src/formats/csv.js",
+    "longname": "src/formats/csv.js~csv",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/formats/csv.js",
+    "importStyle": "{csv}",
+    "description": "Converts a stream of comma separated values to a stream of values.",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 2,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/formats/index.js",
+    "memberof": null,
+    "longname": "src/formats/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nexport * from './integer' ;\nexport * from './csv' ;\nexport * from './tsv' ;\n"
+  },
+  {
+    "__docId__": 3,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/formats/integer.js",
+    "memberof": null,
+    "longname": "src/formats/integer.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 6,
+    "content": "\n/**\n * Converts as many tokens as possible into an integer.\n * @param {Stream} stream the stream to read from\n */\nexport function integer ( stream ) {\n\n\tlet i = 0 ;\n\tlet s = 1 ;\n\n\tconst token = stream.read( ) ;\n\n\tif ( token === null ) return null ;\n\n\tif ( token === '-' ) s = -1 ;\n\telse if ( token !== '+' ) stream.unread( token ) ;\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) return s * i ;\n\n\t\tif ( token < '0' || token > '9' ) {\n\t\t\tstream.unread( token ) ;\n\t\t\treturn s * i ;\n\t\t}\n\n\t\ti *= 10 ;\n\t\ti += +token ;\n\n\t}\n\n}\n"
+  },
+  {
+    "__docId__": 4,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "integer",
+    "memberof": "src/formats/integer.js",
+    "longname": "src/formats/integer.js~integer",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/formats/integer.js",
+    "importStyle": "{integer}",
+    "description": "Converts as many tokens as possible into an integer.",
+    "lineNumber": 6,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 5,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/formats/tsv.js",
+    "memberof": null,
+    "longname": "src/formats/tsv.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nimport { split } from './../tools/split' ;\nimport { ignore } from './../tools/ignore' ;\n\n/**\n * Converts a stream of tab separated values to a stream of values.\n * @param {Stream} stream the stream to read from\n */\nexport function tsv ( stream ) {\n\treturn split( ignore( stream , ' \\n' ) , '\\t' ) ;\n}\n"
+  },
+  {
+    "__docId__": 6,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "tsv",
+    "memberof": "src/formats/tsv.js",
+    "longname": "src/formats/tsv.js~tsv",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/formats/tsv.js",
+    "importStyle": "{tsv}",
+    "description": "Converts a stream of tab separated values to a stream of values.",
+    "lineNumber": 9,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 7,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/index.js",
+    "memberof": null,
+    "longname": "src/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export * from './tools' ;\nexport * from './formats' ;\n"
+  },
+  {
+    "__docId__": 8,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/chain.js",
+    "memberof": null,
+    "longname": "src/tools/chain.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nimport { fromiterable } from './from' ;\nimport { toiterable } from './to' ;\nimport { map as _map , chain as _chain } from 'aureooms-js-itertools' ;\n\n/**\n * Converts a stream of streams of tokens to a stream of tokens.\n * @param {Stream} stream the stream to read from\n */\nexport function chain ( stream ) {\n\n\treturn fromiterable( _chain( _map( toiterable , toiterable( stream ) ) ) ) ;\n\n}\n"
+  },
+  {
+    "__docId__": 9,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "chain",
+    "memberof": "src/tools/chain.js",
+    "longname": "src/tools/chain.js~chain",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/chain.js",
+    "importStyle": "{chain}",
+    "description": "Converts a stream of streams of tokens to a stream of tokens.",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 10,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/exhaust.js",
+    "memberof": null,
+    "longname": "src/tools/exhaust.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 6,
+    "content": "\n/**\n * Exhausts a stream.\n * @param {Stream} stream the stream to read from\n */\nexport function exhaust ( stream ) {\n\n\twhile ( stream.read( ) !== null ) ;\n\n}\n"
+  },
+  {
+    "__docId__": 11,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "exhaust",
+    "memberof": "src/tools/exhaust.js",
+    "longname": "src/tools/exhaust.js~exhaust",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/exhaust.js",
+    "importStyle": "{exhaust}",
+    "description": "Exhausts a stream.",
+    "lineNumber": 6,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 12,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/from/from.js",
+    "memberof": null,
+    "longname": "src/tools/from/from.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 7,
+    "content": "\n/**\n * Converts an iterable to a stream.\n * @kind function\n * @param {Iterable} _iterable the iterable to convert\n */\nexport const fromiterable = _iterable => fromiterator( _iterable[Symbol.iterator]( ) ) ;\n\n/**\n * Converts an iterator to a stream.\n * @kind function\n * @param {Iterator} _iterator the iterator to convert\n */\nexport const fromiterator = _iterator => fromcallable( _iterator.next.bind( _iterator ) ) ;\n\n/**\n * Converts a callable to a stream.\n * @kind function\n * @param {Callable} _callable the callable to convert\n */\nexport const fromcallable = _callable => new StreamFromCallable( _callable ) ;\n\n\n/**\n * Class that wraps a callable with a stream.\n */\nexport class StreamFromCallable {\n\n\tconstructor ( callable ) {\n\t\tthis.callable = callable ;\n\t\tthis.buffer = [ ] ;\n\t}\n\n\tread ( ) {\n\n\t\tif ( this.buffer.length > 0 ) return this.buffer.pop( ) ;\n\n\t\tconst state = this.callable( ) ;\n\n\t\tif ( state.done ) return null ;\n\n\t\treturn state.value ;\n\n\t}\n\n\tunread ( token ) {\n\n\t\tthis.buffer.push( token ) ;\n\n\t}\n\n}\n\n/**\n * Converts a string to a stream.\n * @kind function\n * @param {String} _string the string to convert\n * @example fromstring( '1,3,2' )\n */\nexport const fromstring = fromiterable ;\n\n/**\n * Converts an array to a stream.\n * @kind function\n * @param {Array} _array the array to convert\n */\nexport const fromarray = fromiterable ;\n"
+  },
+  {
+    "__docId__": 13,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "fromiterable",
+    "memberof": "src/tools/from/from.js",
+    "longname": "src/tools/from/from.js~fromiterable",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/from/from.js",
+    "importStyle": "{fromiterable}",
+    "description": "Converts an iterable to a stream.",
+    "lineNumber": 7,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_iterable",
+        "description": "the iterable to convert"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 14,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "fromiterator",
+    "memberof": "src/tools/from/from.js",
+    "longname": "src/tools/from/from.js~fromiterator",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/from/from.js",
+    "importStyle": "{fromiterator}",
+    "description": "Converts an iterator to a stream.",
+    "lineNumber": 14,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Iterator"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_iterator",
+        "description": "the iterator to convert"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 15,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "fromcallable",
+    "memberof": "src/tools/from/from.js",
+    "longname": "src/tools/from/from.js~fromcallable",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/from/from.js",
+    "importStyle": "{fromcallable}",
+    "description": "Converts a callable to a stream.",
+    "lineNumber": 21,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Callable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_callable",
+        "description": "the callable to convert"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "StreamFromCallable",
+    "memberof": "src/tools/from/from.js",
+    "longname": "src/tools/from/from.js~StreamFromCallable",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/from/from.js",
+    "importStyle": "{StreamFromCallable}",
+    "description": "Class that wraps a callable with a stream.",
+    "lineNumber": 27,
+    "interface": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/tools/from/from.js~StreamFromCallable",
+    "longname": "src/tools/from/from.js~StreamFromCallable#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 29,
+    "undocument": true,
+    "params": [
+      {
+        "name": "callable",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 18,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "callable",
+    "memberof": "src/tools/from/from.js~StreamFromCallable",
+    "longname": "src/tools/from/from.js~StreamFromCallable#callable",
+    "access": null,
+    "description": null,
+    "lineNumber": 30,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 19,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "buffer",
+    "memberof": "src/tools/from/from.js~StreamFromCallable",
+    "longname": "src/tools/from/from.js~StreamFromCallable#buffer",
+    "access": null,
+    "description": null,
+    "lineNumber": 31,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 20,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "read",
+    "memberof": "src/tools/from/from.js~StreamFromCallable",
+    "longname": "src/tools/from/from.js~StreamFromCallable#read",
+    "access": null,
+    "description": null,
+    "lineNumber": 34,
+    "undocument": true,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "unread",
+    "memberof": "src/tools/from/from.js~StreamFromCallable",
+    "longname": "src/tools/from/from.js~StreamFromCallable#unread",
+    "access": null,
+    "description": null,
+    "lineNumber": 46,
+    "undocument": true,
+    "params": [
+      {
+        "name": "token",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "fromstring",
+    "memberof": "src/tools/from/from.js",
+    "longname": "src/tools/from/from.js~fromstring",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/from/from.js",
+    "importStyle": "{fromstring}",
+    "description": "Converts a string to a stream.",
+    "examples": [
+      "fromstring( '1,3,2' )"
+    ],
+    "lineNumber": 60,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_string",
+        "description": "the string to convert"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 23,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "fromarray",
+    "memberof": "src/tools/from/from.js",
+    "longname": "src/tools/from/from.js~fromarray",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/from/from.js",
+    "importStyle": "{fromarray}",
+    "description": "Converts an array to a stream.",
+    "lineNumber": 67,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "_array",
+        "description": "the array to convert"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 24,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/from/index.js",
+    "memberof": null,
+    "longname": "src/tools/from/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export * from './from' ;\n"
+  },
+  {
+    "__docId__": 25,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/ignore.js",
+    "memberof": null,
+    "longname": "src/tools/ignore.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nimport { split } from './split' ;\nimport { chain } from './chain' ;\n\n/**\n * Filters a stream by ignoring a given set of tokens.\n * @param {Stream} stream the stream to filter\n * @param {Iterable} toignore the tokens to ignore\n */\nexport function ignore ( stream , toignore ) {\n\n\treturn chain( split( stream , toignore ) ) ;\n\n}\n"
+  },
+  {
+    "__docId__": 26,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "ignore",
+    "memberof": "src/tools/ignore.js",
+    "longname": "src/tools/ignore.js~ignore",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/ignore.js",
+    "importStyle": "{ignore}",
+    "description": "Filters a stream by ignoring a given set of tokens.",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to filter"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "toignore",
+        "description": "the tokens to ignore"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 27,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/index.js",
+    "memberof": null,
+    "longname": "src/tools/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nexport * from './from' ;\nexport * from './to' ;\n\nexport * from './chain' ;\nexport * from './map' ;\nexport * from './exhaust' ;\nexport * from './ignore' ;\n\nexport * from './skip' ;\nexport * from './split' ;\n"
+  },
+  {
+    "__docId__": 28,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/map.js",
+    "memberof": null,
+    "longname": "src/tools/map.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nimport { fromiterable } from './from' ;\nimport { toiterable } from './to' ;\nimport { map as _map } from 'aureooms-js-itertools' ;\n\n/**\n * Applies a callable to each token of a stream.\n * @param {Callable} callable the callable to apply\n * @param {Stream} stream the stream to process\n */\nexport function map ( callable , stream ) {\n\n\treturn fromiterable( _map( callable , toiterable( stream ) ) ) ;\n\n}\n"
+  },
+  {
+    "__docId__": 29,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "map",
+    "memberof": "src/tools/map.js",
+    "longname": "src/tools/map.js~map",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/map.js",
+    "importStyle": "{map}",
+    "description": "Applies a callable to each token of a stream.",
+    "lineNumber": 11,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Callable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callable",
+        "description": "the callable to apply"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to process"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 30,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/skip/index.js",
+    "memberof": null,
+    "longname": "src/tools/skip/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export * from './skip' ;\n"
+  },
+  {
+    "__docId__": 31,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/skip/skip.js",
+    "memberof": null,
+    "longname": "src/tools/skip/skip.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 8,
+    "content": "\n/**\n * Outputs the next token of a stream that is not contained in a given toskip\n * set.\n * @param {Stream} stream\n * @param {Iterable} toskip\n */\nexport function skip ( stream , toskip ) {\n\n\tconst _toskip = new Set( toskip ) ;\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) return null ;\n\n\t\tif ( _toskip.has( token ) ) continue ;\n\n\t\treturn token ;\n\n\t}\n\n}\n\n/**\n * @kind function\n */\nexport const skipblanks = stream => skip( stream , ' \\t\\n' ) ;\n"
+  },
+  {
+    "__docId__": 32,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "skip",
+    "memberof": "src/tools/skip/skip.js",
+    "longname": "src/tools/skip/skip.js~skip",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/skip/skip.js",
+    "importStyle": "{skip}",
+    "description": "Outputs the next token of a stream that is not contained in a given toskip\nset.",
+    "lineNumber": 8,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "toskip",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 33,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "skipblanks",
+    "memberof": "src/tools/skip/skip.js",
+    "longname": "src/tools/skip/skip.js~skipblanks",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/skip/skip.js",
+    "importStyle": "{skipblanks}",
+    "description": "",
+    "lineNumber": 29,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 34,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/split/index.js",
+    "memberof": null,
+    "longname": "src/tools/split/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export * from './split' ;\n"
+  },
+  {
+    "__docId__": 35,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/split/split.js",
+    "memberof": null,
+    "longname": "src/tools/split/split.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nimport { fromiterable } from '../from' ;\n\nimport { exhaust } from '../exhaust' ;\n\n/**\n * Splits a stream into a stream of streams according to some set of\n * separators.\n * @param {Stream} stream\n * @param {Iterable} sep\n */\nexport function split ( stream , sep ) {\n\n\treturn fromiterable( _split( stream , sep ) ) ;\n\n}\n\nexport function* _split ( stream , sep ) {\n\n\tconst _sep = new Set( sep ) ;\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) break ;\n\n\t\tif ( _sep.has( token ) ) continue ;\n\n\t\tconst group = fromiterable( ( function* ( ) {\n\n\t\t\tyield token ;\n\n\t\t\twhile ( true ) {\n\n\t\t\t\tconst token = stream.read( ) ;\n\n\t\t\t\tif ( _sep.has( token ) ) break ;\n\n\t\t\t\tyield token ;\n\n\t\t\t}\n\n\t\t} )( ) ) ;\n\n\t\tyield group ;\n\n\t\texhaust( group ) ;\n\n\t}\n\n}\n"
+  },
+  {
+    "__docId__": 36,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "split",
+    "memberof": "src/tools/split/split.js",
+    "longname": "src/tools/split/split.js~split",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/split/split.js",
+    "importStyle": "{split}",
+    "description": "Splits a stream into a stream of streams according to some set of\nseparators.",
+    "lineNumber": 12,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sep",
+        "description": ""
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 37,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "_split",
+    "memberof": "src/tools/split/split.js",
+    "longname": "src/tools/split/split.js~_split",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/split/split.js",
+    "importStyle": "{_split}",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "params": [
+      {
+        "name": "stream",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "sep",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "generator": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/to/index.js",
+    "memberof": null,
+    "longname": "src/tools/to/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export * from './toiterable' ;\nexport * from './toiterator' ;\nexport * from './toarray' ;\nexport * from './tostring' ;\n"
+  },
+  {
+    "__docId__": 39,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/to/toarray.js",
+    "memberof": null,
+    "longname": "src/tools/to/toarray.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 2,
+    "content": "\nimport { toiterable } from './toiterable' ;\n\n/**\n * Converts a stream to an array.\n * @kind function\n * @param {Stream} stream the stream to read from\n */\nexport const toarray = stream => [ ...toiterable( stream ) ] ;\n"
+  },
+  {
+    "__docId__": 40,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "toarray",
+    "memberof": "src/tools/to/toarray.js",
+    "longname": "src/tools/to/toarray.js~toarray",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/to/toarray.js",
+    "importStyle": "{toarray}",
+    "description": "Converts a stream to an array.",
+    "lineNumber": 9,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 41,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/to/toiterable.js",
+    "memberof": null,
+    "longname": "src/tools/to/toiterable.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 5,
+    "content": "/**\n * Converts a stream to an iterable.\n * @param {Stream} stream the stream to read from\n */\nexport function* toiterable ( stream ) {\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) break ;\n\n\t\tyield token ;\n\n\t}\n\n}\n"
+  },
+  {
+    "__docId__": 42,
+    "kind": "function",
+    "static": true,
+    "variation": null,
+    "name": "toiterable",
+    "memberof": "src/tools/to/toiterable.js",
+    "longname": "src/tools/to/toiterable.js~toiterable",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/to/toiterable.js",
+    "importStyle": "{toiterable}",
+    "description": "Converts a stream to an iterable.",
+    "lineNumber": 5,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "generator": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/to/toiterator.js",
+    "memberof": null,
+    "longname": "src/tools/to/toiterator.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import { toiterable } from './toiterable' ;\n\n/**\n * Converts a stream to an iterator.\n * @kind function\n * @param {Stream} stream the stream to read from\n */\nexport const toiterator = stream => toiterable( stream )[Symbol.iterator]( ) ;\n"
+  },
+  {
+    "__docId__": 44,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "toiterator",
+    "memberof": "src/tools/to/toiterator.js",
+    "longname": "src/tools/to/toiterator.js~toiterator",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/to/toiterator.js",
+    "importStyle": "{toiterator}",
+    "description": "Converts a stream to an iterator.",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 45,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/tools/to/tostring.js",
+    "memberof": null,
+    "longname": "src/tools/to/tostring.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import { toarray } from './toarray' ;\n\n/**\n * Converts a stream to a string.\n * @kind function\n * @param {Stream} stream the stream to read from\n */\nexport const tostring = stream => toarray( stream ).join( '' ) ;\n"
+  },
+  {
+    "__docId__": 46,
+    "kind": "variable",
+    "static": true,
+    "variation": null,
+    "name": "tostring",
+    "memberof": "src/tools/to/tostring.js",
+    "longname": "src/tools/to/tostring.js~tostring",
+    "access": null,
+    "export": true,
+    "importPath": "aureooms-es-parse/src/tools/to/tostring.js",
+    "importStyle": "{tostring}",
+    "description": "Converts a stream to a string.",
+    "lineNumber": 8,
+    "unknown": [
+      {
+        "tagName": "@kind",
+        "tagValue": "function"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "the stream to read from"
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 48,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 49,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 96,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 97,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 100,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 101,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 102,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 103,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  }
+]

@@ -1,0 +1,397 @@
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "specifiers": [
+        {
+          "type": "ImportSpecifier",
+          "local": {
+            "type": "Identifier",
+            "name": "toiterable",
+            "range": [
+              10,
+              20
+            ],
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 9
+              },
+              "end": {
+                "line": 2,
+                "column": 19
+              }
+            }
+          },
+          "imported": {
+            "type": "Identifier",
+            "name": "toiterable",
+            "range": [
+              10,
+              20
+            ],
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 9
+              },
+              "end": {
+                "line": 2,
+                "column": 19
+              }
+            }
+          },
+          "range": [
+            10,
+            20
+          ],
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 9
+            },
+            "end": {
+              "line": 2,
+              "column": 19
+            }
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "value": "./toiterable",
+        "raw": "'./toiterable'",
+        "range": [
+          28,
+          42
+        ],
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 27
+          },
+          "end": {
+            "line": 2,
+            "column": 41
+          }
+        }
+      },
+      "range": [
+        1,
+        44
+      ],
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 43
+        }
+      },
+      "trailingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Converts a stream to an array.\n * @kind function\n * @param {Stream} stream the stream to read from\n ",
+          "range": [
+            46,
+            155
+          ],
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 8,
+              "column": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "ExportNamedDeclaration",
+      "declaration": {
+        "type": "VariableDeclaration",
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "id": {
+              "type": "Identifier",
+              "name": "toarray",
+              "range": [
+                169,
+                176
+              ],
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 13
+                },
+                "end": {
+                  "line": 9,
+                  "column": 20
+                }
+              }
+            },
+            "init": {
+              "type": "ArrowFunctionExpression",
+              "id": null,
+              "params": [
+                {
+                  "type": "Identifier",
+                  "name": "stream",
+                  "range": [
+                    179,
+                    185
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 9,
+                      "column": 23
+                    },
+                    "end": {
+                      "line": 9,
+                      "column": 29
+                    }
+                  }
+                }
+              ],
+              "body": {
+                "type": "ArrayExpression",
+                "elements": [
+                  {
+                    "type": "SpreadElement",
+                    "argument": {
+                      "type": "CallExpression",
+                      "callee": {
+                        "type": "Identifier",
+                        "name": "toiterable",
+                        "range": [
+                          194,
+                          204
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 9,
+                            "column": 38
+                          },
+                          "end": {
+                            "line": 9,
+                            "column": 48
+                          }
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "Identifier",
+                          "name": "stream",
+                          "range": [
+                            206,
+                            212
+                          ],
+                          "loc": {
+                            "start": {
+                              "line": 9,
+                              "column": 50
+                            },
+                            "end": {
+                              "line": 9,
+                              "column": 56
+                            }
+                          }
+                        }
+                      ],
+                      "range": [
+                        194,
+                        214
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 9,
+                          "column": 38
+                        },
+                        "end": {
+                          "line": 9,
+                          "column": 58
+                        }
+                      }
+                    },
+                    "range": [
+                      191,
+                      214
+                    ],
+                    "loc": {
+                      "start": {
+                        "line": 9,
+                        "column": 35
+                      },
+                      "end": {
+                        "line": 9,
+                        "column": 58
+                      }
+                    }
+                  }
+                ],
+                "range": [
+                  189,
+                  216
+                ],
+                "loc": {
+                  "start": {
+                    "line": 9,
+                    "column": 33
+                  },
+                  "end": {
+                    "line": 9,
+                    "column": 60
+                  }
+                }
+              },
+              "generator": false,
+              "expression": true,
+              "range": [
+                179,
+                216
+              ],
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 23
+                },
+                "end": {
+                  "line": 9,
+                  "column": 60
+                }
+              }
+            },
+            "range": [
+              169,
+              216
+            ],
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 13
+              },
+              "end": {
+                "line": 9,
+                "column": 60
+              }
+            }
+          }
+        ],
+        "kind": "const",
+        "range": [
+          163,
+          218
+        ],
+        "loc": {
+          "start": {
+            "line": 9,
+            "column": 7
+          },
+          "end": {
+            "line": 9,
+            "column": 62
+          }
+        },
+        "leadingComments": [
+          {
+            "type": "Block",
+            "value": "*\n * Converts a stream to an array.\n * @kind function\n * @param {Stream} stream the stream to read from\n ",
+            "range": [
+              46,
+              155
+            ],
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": []
+      },
+      "specifiers": [],
+      "source": null,
+      "range": [
+        156,
+        218
+      ],
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 62
+        }
+      },
+      "leadingComments": [
+        {
+          "type": "Block",
+          "value": "*\n * Converts a stream to an array.\n * @kind function\n * @param {Stream} stream the stream to read from\n ",
+          "range": [
+            46,
+            155
+          ],
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 0
+            },
+            "end": {
+              "line": 8,
+              "column": 3
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module",
+  "range": [
+    1,
+    218
+  ],
+  "loc": {
+    "start": {
+      "line": 2,
+      "column": 0
+    },
+    "end": {
+      "line": 9,
+      "column": 62
+    }
+  },
+  "comments": [
+    {
+      "type": "Block",
+      "value": "*\n * Converts a stream to an array.\n * @kind function\n * @param {Stream} stream the stream to read from\n ",
+      "range": [
+        46,
+        155
+      ],
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 3
+        }
+      }
+    }
+  ]
+}
