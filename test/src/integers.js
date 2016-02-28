@@ -1,6 +1,7 @@
-import 'babel-polyfill' ;
 import test from 'ava' ;
-import * as parse from '../../src/index.js' ;
+
+require('babel-register')({ignore:false});
+const parse = require('../../src/index.js') ;
 
 /**
  * @test {parse#from}

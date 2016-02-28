@@ -1,7 +1,7 @@
 
 import { fromiterable } from './from' ;
 import { toiterable } from './to' ;
-import { map as _map , chain as _chain } from 'aureooms-js-itertools' ;
+import { map as _map , chain as _chain } from 'aureooms-es-itertools' ;
 
 /**
  * Converts a stream of streams of tokens to a stream of tokens.
