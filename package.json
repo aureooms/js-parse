@@ -32,7 +32,7 @@
     "nyc": "^7.0.0"
   },
   "dependencies": {
-    "aureooms-es-itertools": "0.0.5"
+    "aureooms-es-itertools": "2.1.2"
   },
   "babel": {
     "presets": [
