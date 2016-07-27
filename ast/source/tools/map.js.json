@@ -242,8 +242,8 @@
       ],
       "source": {
         "type": "Literal",
-        "value": "aureooms-js-itertools",
-        "raw": "'aureooms-js-itertools'",
+        "value": "aureooms-es-itertools",
+        "raw": "'aureooms-es-itertools'",
         "range": [
           105,
           128

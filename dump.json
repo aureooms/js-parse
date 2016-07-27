@@ -174,7 +174,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport { fromiterable } from './from' ;\nimport { toiterable } from './to' ;\nimport { map as _map , chain as _chain } from 'aureooms-js-itertools' ;\n\n/**\n * Converts a stream of streams of tokens to a stream of tokens.\n * @param {Stream} stream the stream to read from\n */\nexport function chain ( stream ) {\n\n\treturn fromiterable( _chain( _map( toiterable , toiterable( stream ) ) ) ) ;\n\n}\n"
+    "content": "\nimport { fromiterable } from './from' ;\nimport { toiterable } from './to' ;\nimport { map as _map , chain as _chain } from 'aureooms-es-itertools' ;\n\n/**\n * Converts a stream of streams of tokens to a stream of tokens.\n * @param {Stream} stream the stream to read from\n */\nexport function chain ( stream ) {\n\n\treturn fromiterable( _chain( _map( toiterable , toiterable( stream ) ) ) ) ;\n\n}\n"
   },
   {
     "__docId__": 9,
@@ -665,7 +665,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport { fromiterable } from './from' ;\nimport { toiterable } from './to' ;\nimport { map as _map } from 'aureooms-js-itertools' ;\n\n/**\n * Applies a callable to each token of a stream.\n * @param {Callable} callable the callable to apply\n * @param {Stream} stream the stream to process\n */\nexport function map ( callable , stream ) {\n\n\treturn fromiterable( _map( callable , toiterable( stream ) ) ) ;\n\n}\n"
+    "content": "\nimport { fromiterable } from './from' ;\nimport { toiterable } from './to' ;\nimport { map as _map } from 'aureooms-es-itertools' ;\n\n/**\n * Applies a callable to each token of a stream.\n * @param {Callable} callable the callable to apply\n * @param {Stream} stream the stream to process\n */\nexport function map ( callable , stream ) {\n\n\treturn fromiterable( _map( callable , toiterable( stream ) ) ) ;\n\n}\n"
   },
   {
     "__docId__": 29,
