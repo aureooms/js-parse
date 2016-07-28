@@ -1,22 +1,22 @@
 
 /**
  * Converts an iterable to a stream.
- * @kind function
  * @param {Iterable} _iterable the iterable to convert
+ * @function
  */
 export const fromiterable = _iterable => fromiterator( _iterable[Symbol.iterator]( ) ) ;
 
 /**
  * Converts an iterator to a stream.
- * @kind function
  * @param {Iterator} _iterator the iterator to convert
+ * @function
  */
 export const fromiterator = _iterator => fromcallable( _iterator.next.bind( _iterator ) ) ;
 
 /**
  * Converts a callable to a stream.
- * @kind function
  * @param {Callable} _callable the callable to convert
+ * @function
  */
 export const fromcallable = _callable => new StreamFromCallable( _callable ) ;
 
@@ -26,11 +26,23 @@ export const fromcallable = _callable => new StreamFromCallable( _callable ) ;
  */
 export class StreamFromCallable {
 
+	/**
+	 * The constructor. Stores the callable that yields values to stream.
+	 *
+	 * @param {Callable} callable - The callable to use.
+	 * @returns {StreamFromCallable}
+	 *
+	 */
 	constructor ( callable ) {
 		this.callable = callable ;
 		this.buffer = [ ] ;
 	}
 
+	/**
+	 * Returns the next token in the stream.
+	 *
+	 * @returns {Object}
+	 */
 	read ( ) {
 
 		if ( this.buffer.length > 0 ) return this.buffer.pop( ) ;
@@ -43,6 +55,12 @@ export class StreamFromCallable {
 
 	}
 
+	/**
+	 * Puts a token back in the stream. If {@link StreamFromCallable#read} is
+	 * used just after, this token will be returned.
+	 *
+	 * @param {Object} token - The token to put back in the stream.
+	 */
 	unread ( token ) {
 
 		this.buffer.push( token ) ;
@@ -53,15 +71,18 @@ export class StreamFromCallable {
 
 /**
  * Converts a string to a stream.
- * @kind function
+ *
+ * @example
+ * fromstring( '1,3,2' ) ;
+ *
  * @param {String} _string the string to convert
- * @example fromstring( '1,3,2' )
+ * @function
  */
 export const fromstring = fromiterable ;
 
 /**
  * Converts an array to a stream.
- * @kind function
  * @param {Array} _array the array to convert
+ * @function
  */
 export const fromarray = fromiterable ;
