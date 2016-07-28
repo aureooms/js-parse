@@ -69,7 +69,7 @@
     "access": null,
     "description": null,
     "lineNumber": 6,
-    "content": "\n/**\n * Converts as many tokens as possible into an integer.\n * @param {Stream} stream the stream to read from\n */\nexport function integer ( stream ) {\n\n\tlet i = 0 ;\n\tlet s = 1 ;\n\n\tconst token = stream.read( ) ;\n\n\tif ( token === null ) return null ;\n\n\tif ( token === '-' ) s = -1 ;\n\telse if ( token !== '+' ) stream.unread( token ) ;\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) return s * i ;\n\n\t\tif ( token < '0' || token > '9' ) {\n\t\t\tstream.unread( token ) ;\n\t\t\treturn s * i ;\n\t\t}\n\n\t\ti *= 10 ;\n\t\ti += +token ;\n\n\t}\n\n}\n"
+    "content": "\n/**\n * Converts as many tokens as possible into an integer.\n * @param {Stream} stream - The stream to read from.\n */\nexport function integer ( stream ) {\n\n\tlet i = 0 ;\n\tlet s = 1 ;\n\n\tconst token = stream.read( ) ;\n\n\tif ( token === null ) return null ;\n\n\tif ( token === '-' ) s = -1 ;\n\telse if ( token !== '+' ) stream.unread( token ) ;\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) return s * i ;\n\n\t\tif ( token < '0' || token > '9' ) {\n\t\t\tstream.unread( token ) ;\n\t\t\treturn s * i ;\n\t\t}\n\n\t\ti *= 10 ;\n\t\ti += +token ;\n\n\t}\n\n}\n"
   },
   {
     "__docId__": 4,
@@ -94,7 +94,7 @@
         "spread": false,
         "optional": false,
         "name": "stream",
-        "description": "the stream to read from"
+        "description": "The stream to read from."
       }
     ],
     "return": {
@@ -261,7 +261,7 @@
     "access": null,
     "description": null,
     "lineNumber": 7,
-    "content": "\n/**\n * Converts an iterable to a stream.\n * @kind function\n * @param {Iterable} _iterable the iterable to convert\n */\nexport const fromiterable = _iterable => fromiterator( _iterable[Symbol.iterator]( ) ) ;\n\n/**\n * Converts an iterator to a stream.\n * @kind function\n * @param {Iterator} _iterator the iterator to convert\n */\nexport const fromiterator = _iterator => fromcallable( _iterator.next.bind( _iterator ) ) ;\n\n/**\n * Converts a callable to a stream.\n * @kind function\n * @param {Callable} _callable the callable to convert\n */\nexport const fromcallable = _callable => new StreamFromCallable( _callable ) ;\n\n\n/**\n * Class that wraps a callable with a stream.\n */\nexport class StreamFromCallable {\n\n\tconstructor ( callable ) {\n\t\tthis.callable = callable ;\n\t\tthis.buffer = [ ] ;\n\t}\n\n\tread ( ) {\n\n\t\tif ( this.buffer.length > 0 ) return this.buffer.pop( ) ;\n\n\t\tconst state = this.callable( ) ;\n\n\t\tif ( state.done ) return null ;\n\n\t\treturn state.value ;\n\n\t}\n\n\tunread ( token ) {\n\n\t\tthis.buffer.push( token ) ;\n\n\t}\n\n}\n\n/**\n * Converts a string to a stream.\n * @kind function\n * @param {String} _string the string to convert\n * @example fromstring( '1,3,2' )\n */\nexport const fromstring = fromiterable ;\n\n/**\n * Converts an array to a stream.\n * @kind function\n * @param {Array} _array the array to convert\n */\nexport const fromarray = fromiterable ;\n"
+    "content": "\n/**\n * Converts an iterable to a stream.\n * @param {Iterable} _iterable the iterable to convert\n * @function\n */\nexport const fromiterable = _iterable => fromiterator( _iterable[Symbol.iterator]( ) ) ;\n\n/**\n * Converts an iterator to a stream.\n * @param {Iterator} _iterator the iterator to convert\n * @function\n */\nexport const fromiterator = _iterator => fromcallable( _iterator.next.bind( _iterator ) ) ;\n\n/**\n * Converts a callable to a stream.\n * @param {Callable} _callable the callable to convert\n * @function\n */\nexport const fromcallable = _callable => new StreamFromCallable( _callable ) ;\n\n\n/**\n * Class that wraps a callable with a stream.\n */\nexport class StreamFromCallable {\n\n\t/**\n\t * The constructor. Stores the callable that yields values to stream.\n\t *\n\t * @param {Callable} callable - The callable to use.\n\t * @returns {StreamFromCallable}\n\t *\n\t */\n\tconstructor ( callable ) {\n\t\tthis.callable = callable ;\n\t\tthis.buffer = [ ] ;\n\t}\n\n\t/**\n\t * Returns the next token in the stream.\n\t *\n\t * @returns {Object}\n\t */\n\tread ( ) {\n\n\t\tif ( this.buffer.length > 0 ) return this.buffer.pop( ) ;\n\n\t\tconst state = this.callable( ) ;\n\n\t\tif ( state.done ) return null ;\n\n\t\treturn state.value ;\n\n\t}\n\n\t/**\n\t * Puts a token back in the stream. If {@link StreamFromCallable#read} is\n\t * used just after, this token will be returned.\n\t *\n\t * @param {Object} token - The token to put back in the stream.\n\t */\n\tunread ( token ) {\n\n\t\tthis.buffer.push( token ) ;\n\n\t}\n\n}\n\n/**\n * Converts a string to a stream.\n *\n * @example\n * fromstring( '1,3,2' ) ;\n *\n * @param {String} _string the string to convert\n * @function\n */\nexport const fromstring = fromiterable ;\n\n/**\n * Converts an array to a stream.\n * @param {Array} _array the array to convert\n * @function\n */\nexport const fromarray = fromiterable ;\n"
   },
   {
     "__docId__": 13,
@@ -279,8 +279,8 @@
     "lineNumber": 7,
     "unknown": [
       {
-        "tagName": "@kind",
-        "tagValue": "function"
+        "tagName": "@function",
+        "tagValue": ""
       }
     ],
     "params": [
@@ -317,8 +317,8 @@
     "lineNumber": 14,
     "unknown": [
       {
-        "tagName": "@kind",
-        "tagValue": "function"
+        "tagName": "@function",
+        "tagValue": ""
       }
     ],
     "params": [
@@ -355,8 +355,8 @@
     "lineNumber": 21,
     "unknown": [
       {
-        "tagName": "@kind",
-        "tagValue": "function"
+        "tagName": "@function",
+        "tagValue": ""
       }
     ],
     "params": [
@@ -402,17 +402,34 @@
     "memberof": "src/tools/from/from.js~StreamFromCallable",
     "longname": "src/tools/from/from.js~StreamFromCallable#constructor",
     "access": null,
-    "description": null,
-    "lineNumber": 29,
-    "undocument": true,
-    "params": [
+    "description": "The constructor. Stores the callable that yields values to stream.",
+    "lineNumber": 36,
+    "unknown": [
       {
-        "name": "callable",
-        "types": [
-          "*"
-        ]
+        "tagName": "@returns",
+        "tagValue": "{StreamFromCallable}"
       }
     ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Callable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callable",
+        "description": "The callable to use."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "StreamFromCallable"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "generator": false
   },
   {
@@ -425,7 +442,7 @@
     "longname": "src/tools/from/from.js~StreamFromCallable#callable",
     "access": null,
     "description": null,
-    "lineNumber": 30,
+    "lineNumber": 37,
     "undocument": true,
     "type": {
       "types": [
@@ -443,7 +460,7 @@
     "longname": "src/tools/from/from.js~StreamFromCallable#buffer",
     "access": null,
     "description": null,
-    "lineNumber": 31,
+    "lineNumber": 38,
     "undocument": true,
     "type": {
       "types": [
@@ -460,14 +477,22 @@
     "memberof": "src/tools/from/from.js~StreamFromCallable",
     "longname": "src/tools/from/from.js~StreamFromCallable#read",
     "access": null,
-    "description": null,
-    "lineNumber": 34,
-    "undocument": true,
+    "description": "Returns the next token in the stream.",
+    "lineNumber": 46,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Object}"
+      }
+    ],
     "params": [],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Object"
+      ],
+      "spread": false,
+      "description": ""
     },
     "generator": false
   },
@@ -480,15 +505,18 @@
     "memberof": "src/tools/from/from.js~StreamFromCallable",
     "longname": "src/tools/from/from.js~StreamFromCallable#unread",
     "access": null,
-    "description": null,
-    "lineNumber": 46,
-    "undocument": true,
+    "description": "Puts a token back in the stream. If {@link StreamFromCallable#read} is\nused just after, this token will be returned.",
+    "lineNumber": 64,
     "params": [
       {
-        "name": "token",
+        "nullable": null,
         "types": [
-          "*"
-        ]
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "token",
+        "description": "The token to put back in the stream."
       }
     ],
     "generator": false
@@ -507,13 +535,13 @@
     "importStyle": "{fromstring}",
     "description": "Converts a string to a stream.",
     "examples": [
-      "fromstring( '1,3,2' )"
+      "fromstring( '1,3,2' ) ;"
     ],
-    "lineNumber": 60,
+    "lineNumber": 81,
     "unknown": [
       {
-        "tagName": "@kind",
-        "tagValue": "function"
+        "tagName": "@function",
+        "tagValue": ""
       }
     ],
     "params": [
@@ -547,11 +575,11 @@
     "importPath": "aureooms-es-parse/src/tools/from/from.js",
     "importStyle": "{fromarray}",
     "description": "Converts an array to a stream.",
-    "lineNumber": 67,
+    "lineNumber": 88,
     "unknown": [
       {
-        "tagName": "@kind",
-        "tagValue": "function"
+        "tagName": "@function",
+        "tagValue": ""
       }
     ],
     "params": [
@@ -829,7 +857,7 @@
     "access": null,
     "description": null,
     "lineNumber": 2,
-    "content": "\nimport { fromiterable } from '../from' ;\n\nimport { exhaust } from '../exhaust' ;\n\n/**\n * Splits a stream into a stream of streams according to some set of\n * separators.\n * @param {Stream} stream\n * @param {Iterable} sep\n */\nexport function split ( stream , sep ) {\n\n\treturn fromiterable( _split( stream , sep ) ) ;\n\n}\n\nexport function* _split ( stream , sep ) {\n\n\tconst _sep = new Set( sep ) ;\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) break ;\n\n\t\tif ( _sep.has( token ) ) continue ;\n\n\t\tconst group = fromiterable( ( function* ( ) {\n\n\t\t\tyield token ;\n\n\t\t\twhile ( true ) {\n\n\t\t\t\tconst token = stream.read( ) ;\n\n\t\t\t\tif ( _sep.has( token ) ) break ;\n\n\t\t\t\tyield token ;\n\n\t\t\t}\n\n\t\t} )( ) ) ;\n\n\t\tyield group ;\n\n\t\texhaust( group ) ;\n\n\t}\n\n}\n"
+    "content": "\nimport { fromiterable } from '../from' ;\n\nimport { exhaust } from '../exhaust' ;\n\n/**\n * Splits the input stream into a stream of streams according to some set of\n * separators. See {@link _split} for the actual implementation.\n *\n * @param {Stream} stream - The input stream.\n * @param {Iterable} sep - An iterable of separators.\n * @returns {Stream}\n */\nexport function split ( stream , sep ) {\n\n\treturn fromiterable( _split( stream , sep ) ) ;\n\n}\n\n/**\n * Same as {@link split}, but returns an iterator rather than a stream.\n *\n * @param {Stream} stream - The input stream.\n * @param {Iterable} sep - An iterable of separators.\n * @returns {Iterator}\n */\nexport function* _split ( stream , sep ) {\n\n\tconst _sep = new Set( sep ) ;\n\n\twhile ( true ) {\n\n\t\tconst token = stream.read( ) ;\n\n\t\tif ( token === null ) break ;\n\n\t\tif ( _sep.has( token ) ) continue ;\n\n\t\tconst group = fromiterable( ( function* ( ) {\n\n\t\t\tyield token ;\n\n\t\t\twhile ( true ) {\n\n\t\t\t\tconst token = stream.read( ) ;\n\n\t\t\t\tif ( _sep.has( token ) ) break ;\n\n\t\t\t\tyield token ;\n\n\t\t\t}\n\n\t\t} )( ) ) ;\n\n\t\tyield group ;\n\n\t\texhaust( group ) ;\n\n\t}\n\n}\n"
   },
   {
     "__docId__": 36,
@@ -843,8 +871,14 @@
     "export": true,
     "importPath": "aureooms-es-parse/src/tools/split/split.js",
     "importStyle": "{split}",
-    "description": "Splits a stream into a stream of streams according to some set of\nseparators.",
-    "lineNumber": 12,
+    "description": "Splits the input stream into a stream of streams according to some set of\nseparators. See {@link _split} for the actual implementation.",
+    "lineNumber": 14,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Stream}"
+      }
+    ],
     "params": [
       {
         "nullable": null,
@@ -854,7 +888,7 @@
         "spread": false,
         "optional": false,
         "name": "stream",
-        "description": ""
+        "description": "The input stream."
       },
       {
         "nullable": null,
@@ -864,13 +898,16 @@
         "spread": false,
         "optional": false,
         "name": "sep",
-        "description": ""
+        "description": "An iterable of separators."
       }
     ],
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Stream"
+      ],
+      "spread": false,
+      "description": ""
     },
     "generator": false
   },
@@ -886,23 +923,44 @@
     "export": true,
     "importPath": "aureooms-es-parse/src/tools/split/split.js",
     "importStyle": "{_split}",
-    "description": null,
-    "lineNumber": 18,
-    "undocument": true,
-    "params": [
+    "description": "Same as {@link split}, but returns an iterator rather than a stream.",
+    "lineNumber": 27,
+    "unknown": [
       {
-        "name": "stream",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "sep",
-        "types": [
-          "*"
-        ]
+        "tagName": "@returns",
+        "tagValue": "{Iterator}"
       }
     ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Stream"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "stream",
+        "description": "The input stream."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "sep",
+        "description": "An iterable of separators."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Iterator"
+      ],
+      "spread": false,
+      "description": ""
+    },
     "generator": true
   },
   {

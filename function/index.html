@@ -258,13 +258,13 @@ set.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-split">split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>*</span></span>
+           <span data-ice="name"><span><a href="function/index.html#static-function-split">split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Stream</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Splits a stream into a stream of streams according to some set of
+        <div data-ice="description"><p>Splits the input stream into a stream of streams according to some set of
 separators.</p>
 </div>
       </div>
@@ -343,13 +343,14 @@ separators.</p>
     <td>
       <div>
         <p>
-          <span data-ice="generator">*</span> <span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span><span data-ice="signature">(stream: <span>*</span>, sep: <span>*</span>)</span>
+          <span data-ice="generator">*</span> <span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Iterator</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Same as <span><a href="function/index.html#static-function-split">split</a></span>, but returns an iterator rather than a stream.</p>
+</div>
       </div>
     </td>
     <td>
@@ -666,7 +667,7 @@ separators.</p>
       <td data-ice="name" data-depth="0">stream</td>
       <td data-ice="type"><span>Stream</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the stream to read from</p>
+      <td data-ice="description"><p>The stream to read from.</p>
 </td>
     </tr>
 </tbody>
@@ -855,19 +856,19 @@ set.</p>
     
     
     
-    <span data-ice="name">split</span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>*</span></span>
+    <span data-ice="name">split</span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Stream</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/tools/split/split.js.html#lineNumber12">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/tools/split/split.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {split} from &apos;<span><a href="file/src/tools/split/split.js.html#lineNumber12">aureooms-es-parse/src/tools/split/split.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {split} from &apos;<span><a href="file/src/tools/split/split.js.html#lineNumber14">aureooms-es-parse/src/tools/split/split.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>Splits a stream into a stream of streams according to some set of
-separators.</p>
+  <div data-ice="description"><p>Splits the input stream into a stream of streams according to some set of
+separators. See <span><a href="function/index.html#static-function-_split">_split</a></span> for the actual implementation.</p>
 </div>
 
   
@@ -884,13 +885,15 @@ separators.</p>
       <td data-ice="name" data-depth="0">stream</td>
       <td data-ice="type"><span>Stream</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>The input stream.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">sep</td>
       <td data-ice="type"><span>Iterable</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>An iterable of separators.</p>
+</td>
     </tr>
 </tbody>
   </table>
@@ -901,7 +904,7 @@ separators.</p>
     <h4>Return:</h4>
     <table>
       <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
+        <td class="return-type" data-ice="returnType"><span>Stream</span></td>
         
       </tr>
     </table>
@@ -1057,18 +1060,19 @@ separators.</p>
     
     
     <span data-ice="generator">*</span>
-    <span data-ice="name">_split</span><span data-ice="signature">(stream: <span>*</span>, sep: <span>*</span>)</span>
+    <span data-ice="name">_split</span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Iterator</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/tools/split/split.js.html#lineNumber18">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/tools/split/split.js.html#lineNumber27">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {_split} from &apos;<span><a href="file/src/tools/split/split.js.html#lineNumber18">aureooms-es-parse/src/tools/split/split.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {_split} from &apos;<span><a href="file/src/tools/split/split.js.html#lineNumber27">aureooms-es-parse/src/tools/split/split.js</a></span>&apos;</code></pre></div>
   
   
-  
+  <div data-ice="description"><p>Same as <span><a href="function/index.html#static-function-split">split</a></span>, but returns an iterator rather than a stream.</p>
+</div>
 
   
 
@@ -1082,22 +1086,34 @@ separators.</p>
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span>Stream</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>The input stream.</p>
+</td>
     </tr>
 <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">sep</td>
-      <td data-ice="type"><span>*</span></td>
+      <td data-ice="type"><span>Iterable</span></td>
       <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
+      <td data-ice="description"><p>An iterable of separators.</p>
+</td>
     </tr>
 </tbody>
   </table>
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span>Iterator</span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 

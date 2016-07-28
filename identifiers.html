@@ -292,13 +292,13 @@ set.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-split">split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>*</span></span>
+           <span data-ice="name"><span><a href="function/index.html#static-function-split">split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Stream</span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Splits a stream into a stream of streams according to some set of
+        <div data-ice="description"><p>Splits the input stream into a stream of streams according to some set of
 separators.</p>
 </div>
       </div>
@@ -377,13 +377,14 @@ separators.</p>
     <td>
       <div>
         <p>
-          <span data-ice="generator">*</span> <span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span><span data-ice="signature">(stream: <span>*</span>, sep: <span>*</span>)</span>
+          <span data-ice="generator">*</span> <span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Iterator</span></span>
         </p>
       </div>
       <div>
         
         
-        
+        <div data-ice="description"><p>Same as <span><a href="function/index.html#static-function-split">split</a></span>, but returns an iterator rather than a stream.</p>
+</div>
       </div>
     </td>
     <td>
