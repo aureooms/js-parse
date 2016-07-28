@@ -1,7 +1,7 @@
 
 /**
  * Converts as many tokens as possible into an integer.
- * @param {Stream} stream the stream to read from
+ * @param {Stream} stream - The stream to read from.
  */
 export function integer ( stream ) {
 

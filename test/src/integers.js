@@ -78,6 +78,19 @@ test( 'can parse tsv' , t => {
 /**
  * @test {parse#integer}
  */
+test( 'can parse a single integer' , t => {
+
+	const input = '+92839328£µ' ;
+	const stream = parse.fromiterable( input ) ;
+	const n = parse.integer( stream ) ;
+	t.deepEqual( n , 92839328 ) ;
+	t.deepEqual( stream.read( ) , '£' ) ;
+
+} ) ;
+
+/**
+ * @test {parse#integer}
+ */
 test( 'can parse integers' , t => {
 
 	let input = '\n\n\n    1 ,\t22\n, 333\t,\n-44 ,\t-5 \t\n  \t' ;
