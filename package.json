@@ -29,7 +29,7 @@
     "babel-preset-es2016": "^6.11.3",
     "codeclimate-test-reporter": "^0.3.3",
     "coveralls": "^2.11.11",
-    "nyc": "^7.0.0"
+    "nyc": "^8.1.0"
   },
   "dependencies": {
     "aureooms-es-itertools": "2.3.1"
