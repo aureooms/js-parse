@@ -1,39 +1,8 @@
 {
   "name": "aureooms-es-parse",
-  "version": "1.0.3",
   "description": "Easily parse various input formats.",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "ava ./test/src",
-    "cover": "nyc --reporter=lcov npm test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aureooms/es-parse"
-  },
-  "keywords": [
-    "parse"
-  ],
-  "author": "aureooms",
-  "license": "AGPL-3.0",
-  "bugs": {
-    "url": "https://github.com/aureooms/es-parse/issues"
-  },
-  "homepage": "https://github.com/aureooms/es-parse#readme",
-  "devDependencies": {
-    "ava": "^0.15.2",
-    "babel-cli": "^6.11.4",
-    "babel-plugin-transform-runtime": "^6.9.0",
-    "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-preset-es2016": "^6.11.3",
-    "codeclimate-test-reporter": "^0.3.3",
-    "coveralls": "^2.11.11",
-    "nyc": "^7.0.0"
-  },
-  "dependencies": {
-    "aureooms-es-itertools": "2.3.0"
-  },
+  "version": "1.0.3",
+  "author": "Aurélien Ooms <aurelien.ooms@gmail.com>",
   "ava": {
     "require": [
       "babel-polyfill",
@@ -42,13 +11,44 @@
   },
   "babel": {
     "presets": [
-      "es2015",
-      "es2016"
+      "latest"
     ],
     "env": {
       "development": {
         "sourceMaps": "inline"
       }
     }
+  },
+  "bugs": {
+    "url": "https://github.com/aureooms/es-parse/issues"
+  },
+  "dependencies": {
+    "aureooms-js-itertools": "^1.3.0"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-cli": "^6.16.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-latest": "^6.16.0",
+    "codeclimate-test-reporter": "^0.4.0",
+    "coveralls": "^2.11.14",
+    "esdoc": "^0.4.8",
+    "nyc": "^8.3.1"
+  },
+  "homepage": "https://github.com/aureooms/es-parse#readme",
+  "keywords": [
+    "parse"
+  ],
+  "license": "AGPL-3.0",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aureooms/es-parse"
+  },
+  "scripts": {
+    "build": "babel src -d lib",
+    "cover": "nyc --reporter=lcov npm test",
+    "prepublish": "npm run build",
+    "test": "ava ./test/src"
   }
 }
