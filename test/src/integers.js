@@ -1,7 +1,6 @@
 import test from 'ava' ;
 
-require('babel-register')({ignore:['esprima','istanbul']});
-const parse = require('../../src/index.js') ;
+import * as parse from '../../src' ;
 
 /**
  * @test {parse#from}

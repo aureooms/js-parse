@@ -1,7 +1,7 @@
 
 import { fromiterable } from './from' ;
 import { toiterable } from './to' ;
-import { map as _map } from 'aureooms-es-itertools' ;
+import { map as _map } from 'aureooms-js-itertools' ;
 
 /**
  * Applies a callable to each token of a stream.
