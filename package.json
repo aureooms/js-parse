@@ -1,5 +1,5 @@
 {
-  "name": "aureooms-es-parse",
+  "name": "aureooms-js-parse",
   "description": "Easily parse various input formats.",
   "version": "2.0.0",
   "author": "Aurélien Ooms <aurelien.ooms@gmail.com>",
@@ -20,7 +20,7 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/aureooms/es-parse/issues"
+    "url": "https://github.com/aureooms/js-parse/issues"
   },
   "dependencies": {
     "aureooms-js-itertools": "^3.0.0"
@@ -35,7 +35,7 @@
     "esdoc": "^0.4.8",
     "nyc": "^8.3.1"
   },
-  "homepage": "https://github.com/aureooms/es-parse#readme",
+  "homepage": "https://github.com/aureooms/js-parse#readme",
   "keywords": [
     "parse"
   ],
@@ -43,7 +43,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aureooms/es-parse"
+    "url": "https://github.com/aureooms/js-parse"
   },
   "scripts": {
     "build": "babel src -d lib",
