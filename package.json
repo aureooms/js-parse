@@ -26,14 +26,14 @@
     "aureooms-js-itertools": "^3.0.0"
   },
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.17.0",
     "babel-cli": "^6.18.0",
     "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "codeclimate-test-reporter": "^0.4.0",
     "coveralls": "^2.11.14",
-    "esdoc": "^0.4.8",
-    "nyc": "^8.4.0"
+    "esdoc": "^0.5.1",
+    "nyc": "^10.0.0"
   },
   "homepage": "https://github.com/aureooms/js-parse#readme",
   "keywords": [
