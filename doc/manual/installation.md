@@ -4,10 +4,10 @@ or [npm](https://github.com/npm/npm).
 
 ### jspm
 ```terminal
-jspm install npm:aureooms-js-parse
+jspm install npm:@aureooms/js-parse
 ```
 
 ### npm
 ```terminal
-npm install aureooms-js-parse --save
+npm install @aureooms/js-parse --save
 ```
