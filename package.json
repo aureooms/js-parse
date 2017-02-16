@@ -1,5 +1,5 @@
 {
-  "name": "aureooms-js-parse",
+  "name": "@aureooms/js-parse",
   "description": "Easily parse various input formats.",
   "version": "2.0.1",
   "author": "Aurélien Ooms <aurelien.ooms@gmail.com>",
@@ -23,7 +23,7 @@
     "url": "https://github.com/aureooms/js-parse/issues"
   },
   "dependencies": {
-    "aureooms-js-itertools": "^3.0.0"
+    "@aureooms/js-itertools": "^3.0.0"
   },
   "devDependencies": {
     "ava": "^0.17.0",
