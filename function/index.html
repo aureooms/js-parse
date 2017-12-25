@@ -3,16 +3,12 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../">
-  <title data-ice="title">Function | aureooms-es-parse API Document</title>
+  <title data-ice="title">Function | @aureooms/js-parse</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
-  
-  
   <script src="script/manual.js"></script>
-<script data-ice="userScript" src="user/script/0-header.js"></script>
-<link data-ice="userStyle" rel="stylesheet" href="user/css/0-style.css">
-</head>
+<link rel="stylesheet" href="./inject/css/0-style.css"><script src="./inject/script/0-header.js"></script><meta name="description" content="Easily parse various input formats."><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@aureooms/js-parse"><meta property="twitter:description" content="Easily parse various input formats."></head>
 <body class="layout-container" data-ice="rootContainer">
 
 <header>
@@ -20,8 +16,7 @@
   <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  <a href="test.html" data-ice="testLink">Test</a>
-  <a data-ice="repoURL" href="https://github.com/aureooms/es-parse" class="repo-url-github">Repository</a>
+  
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -29,32 +24,15 @@
   </span>
     <ul class="search-result"></ul>
   </div>
-</header>
+<a style="position:relative; top:3px;" href="https://github.com/aureooms/js-parse"><img width="20px" src="./image/github.png"></a></header>
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">formats</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-csv">csv</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-csv">csv</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-integer">integer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-skipblanks">skipblanks</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-tsv">tsv</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">tools</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-chain">chain</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-exhaust">exhaust</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ignore">ignore</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-map">map</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">tools/from</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/tools/from/from.js~StreamFromCallable.html">StreamFromCallable</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fromarray">fromarray</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fromcallable">fromcallable</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fromiterable">fromiterable</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fromiterator">fromiterator</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-fromstring">fromstring</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">tools/skip</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-skip">skip</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-skipblanks">skipblanks</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">tools/split</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-split">split</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">tools/to</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-toiterable">toiterable</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-toarray">toarray</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-toiterator">toiterator</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-tostring">tostring</a></span></span></li>
 </ul>
 </div>
 </nav>
@@ -75,33 +53,10 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-chain">chain</a></span></span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Converts a stream of streams of tokens to a stream of tokens.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-csv">csv</a></span></span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-csv">csv</a></span></span><span class="code" data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -127,59 +82,10 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-exhaust">exhaust</a></span></span><span data-ice="signature">(stream: <span>Stream</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Exhausts a stream.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-ignore">ignore</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, toignore: <span>Iterable</span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Filters a stream by ignoring a given set of tokens.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-integer">integer</a></span></span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-integer">integer</a></span></span><span class="code" data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -205,14 +111,16 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-map">map</a></span></span><span data-ice="signature">(callable: <span>Callable</span>, stream: <span>Stream</span>): <span>*</span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-skipblanks">skipblanks</a></span></span><span class="code" data-ice="signature">(stream: <span>*</span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Applies a callable to each token of a stream.</p>
-</div>
+        
       </div>
     </td>
     <td>
@@ -231,87 +139,10 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-skip">skip</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, toskip: <span>Iterable</span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Outputs the next token of a stream that is not contained in a given toskip
-set.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-split">split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Stream</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Splits the input stream into a stream of streams according to some set of
-separators.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="generator">*</span> <span data-ice="name"><span><a href="function/index.html#static-function-toiterable">toiterable</a></span></span><span data-ice="signature">(stream: <span>Stream</span>)</span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Converts a stream to an iterable.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="function/index.html#static-function-tsv">tsv</a></span></span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="function/index.html#static-function-tsv">tsv</a></span></span><span class="code" data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -328,109 +159,9 @@ separators.</p>
   </tr>
 </tbody>
 </table>
-<table class="summary" data-ice="summary">
-  <thead><tr><td data-ice="title" colspan="3">Static Private Summary</td></tr></thead>
-  <tbody>
-  
-  <tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">private</span>
-      
-      
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-          <span data-ice="generator">*</span> <span data-ice="name"><span><a href="function/index.html#static-function-_split">_split</a></span></span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Iterator</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Same as <span><a href="function/index.html#static-function-split">split</a></span>, but returns an iterator rather than a stream.</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-</tbody>
-</table>
 </div>
 <div data-ice="details"><h2 data-ice="title">Static Public </h2>
 
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-chain">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">chain</span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/tools/chain.js.html#lineNumber10">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {chain} from &apos;<span><a href="file/src/tools/chain.js.html#lineNumber10">aureooms-es-parse/src/tools/chain.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Converts a stream of streams of tokens to a stream of tokens.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the stream to read from</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
-        
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
 <div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="static-function-csv">
     <span class="access" data-ice="access">public</span>
@@ -438,15 +169,16 @@ separators.</p>
     
     
     
-    <span data-ice="name">csv</span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
+    
+    <span class="code" data-ice="name">csv</span><span class="code" data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/formats/csv.js.html#lineNumber9">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/csv.js.html#lineNumber7">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {csv} from &apos;<span><a href="file/src/formats/csv.js.html#lineNumber9">aureooms-es-parse/src/formats/csv.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import csv from &apos;<span><a href="file/src/csv.js.html#lineNumber7">@aureooms/js-parse/src/csv.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Converts a stream of comma separated values to a stream of values.</p>
@@ -463,8 +195,8 @@ separators.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
+      <td data-ice="name" class="code" data-depth="0">stream</td>
+      <td data-ice="type" class="code"><span>Stream</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>the stream to read from</p>
 </td>
@@ -477,147 +209,18 @@ separators.</p>
   <div class="return-params" data-ice="returnParams">
     <h4>Return:</h4>
     <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
-        
-      </tr>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
     </table>
     <div data-ice="returnProperties">
 </div>
   </div>
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-exhaust">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">exhaust</span><span data-ice="signature">(stream: <span>Stream</span>)</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/tools/exhaust.js.html#lineNumber6">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {exhaust} from &apos;<span><a href="file/src/tools/exhaust.js.html#lineNumber6">aureooms-es-parse/src/tools/exhaust.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Exhausts a stream.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the stream to read from</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-ignore">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">ignore</span><span data-ice="signature">(stream: <span>Stream</span>, toignore: <span>Iterable</span>): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/tools/ignore.js.html#lineNumber10">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {ignore} from &apos;<span><a href="file/src/tools/ignore.js.html#lineNumber10">aureooms-es-parse/src/tools/ignore.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Filters a stream by ignoring a given set of tokens.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the stream to filter</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">toignore</td>
-      <td data-ice="type"><span>Iterable</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the tokens to ignore</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
-        
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
 
   
 
@@ -639,15 +242,16 @@ separators.</p>
     
     
     
-    <span data-ice="name">integer</span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
+    
+    <span class="code" data-ice="name">integer</span><span class="code" data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/formats/integer.js.html#lineNumber6">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/integer.js.html#lineNumber5">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {integer} from &apos;<span><a href="file/src/formats/integer.js.html#lineNumber6">aureooms-es-parse/src/formats/integer.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import integer from &apos;<span><a href="file/src/integer.js.html#lineNumber5">@aureooms/js-parse/src/integer.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Converts as many tokens as possible into an integer.</p>
@@ -664,8 +268,8 @@ separators.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
+      <td data-ice="name" class="code" data-depth="0">stream</td>
+      <td data-ice="type" class="code"><span>Stream</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>The stream to read from.</p>
 </td>
@@ -678,10 +282,12 @@ separators.</p>
   <div class="return-params" data-ice="returnParams">
     <h4>Return:</h4>
     <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
-        
-      </tr>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
     </table>
     <div data-ice="returnProperties">
 </div>
@@ -698,28 +304,30 @@ separators.</p>
   
 
   
+
+  
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-map">
+  <h3 data-ice="anchor" id="static-function-skipblanks">
     <span class="access" data-ice="access">public</span>
     
     
     
     
-    <span data-ice="name">map</span><span data-ice="signature">(callable: <span>Callable</span>, stream: <span>Stream</span>): <span>*</span></span>
+    
+    <span class="code" data-ice="name">skipblanks</span><span class="code" data-ice="signature">(stream: <span>*</span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/tools/map.js.html#lineNumber11">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/skipblanks.js.html#lineNumber6">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {map} from &apos;<span><a href="file/src/tools/map.js.html#lineNumber11">aureooms-es-parse/src/tools/map.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import skipblanks from &apos;<span><a href="file/src/skipblanks.js.html#lineNumber6">@aureooms/js-parse/src/skipblanks.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>Applies a callable to each token of a stream.</p>
-</div>
+  
 
   
 
@@ -732,90 +340,8 @@ separators.</p>
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">callable</td>
-      <td data-ice="type"><span>Callable</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the callable to apply</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the stream to process</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
-        
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-skip">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">skip</span><span data-ice="signature">(stream: <span>Stream</span>, toskip: <span>Iterable</span>): <span>*</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/tools/skip/skip.js.html#lineNumber8">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {skip} from &apos;<span><a href="file/src/tools/skip/skip.js.html#lineNumber8">aureooms-es-parse/src/tools/skip/skip.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Outputs the next token of a stream that is not contained in a given toskip
-set.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"></td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">toskip</td>
-      <td data-ice="type"><span>Iterable</span></td>
+      <td data-ice="name" class="code" data-depth="0">stream</td>
+      <td data-ice="type" class="code"><span>*</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"></td>
     </tr>
@@ -824,149 +350,7 @@ set.</p>
 </div>
 </div>
 
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
-        
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
   
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-split">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    
-    <span data-ice="name">split</span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Stream</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/tools/split/split.js.html#lineNumber14">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {split} from &apos;<span><a href="file/src/tools/split/split.js.html#lineNumber14">aureooms-es-parse/src/tools/split/split.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Splits the input stream into a stream of streams according to some set of
-separators. See <span><a href="function/index.html#static-function-_split">_split</a></span> for the actual implementation.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The input stream.</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">sep</td>
-      <td data-ice="type"><span>Iterable</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>An iterable of separators.</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>Stream</span></td>
-        
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-toiterable">
-    <span class="access" data-ice="access">public</span>
-    
-    
-    
-    <span data-ice="generator">*</span>
-    <span data-ice="name">toiterable</span><span data-ice="signature">(stream: <span>Stream</span>)</span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/tools/to/toiterable.js.html#lineNumber5">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {toiterable} from &apos;<span><a href="file/src/tools/to/toiterable.js.html#lineNumber5">aureooms-es-parse/src/tools/to/toiterable.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Converts a stream to an iterable.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>the stream to read from</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
 
   
 
@@ -990,15 +374,16 @@ separators. See <span><a href="function/index.html#static-function-_split">_spli
     
     
     
-    <span data-ice="name">tsv</span><span data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
+    
+    <span class="code" data-ice="name">tsv</span><span class="code" data-ice="signature">(stream: <span>Stream</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/formats/tsv.js.html#lineNumber9">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/tsv.js.html#lineNumber7">source</a></span></span>
     </span>
   </h3>
 
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {tsv} from &apos;<span><a href="file/src/formats/tsv.js.html#lineNumber9">aureooms-es-parse/src/formats/tsv.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import tsv from &apos;<span><a href="file/src/tsv.js.html#lineNumber7">@aureooms/js-parse/src/tsv.js</a></span>&apos;</code></pre></div>
   
   
   <div data-ice="description"><p>Converts a stream of tab separated values to a stream of values.</p>
@@ -1015,8 +400,8 @@ separators. See <span><a href="function/index.html#static-function-_split">_spli
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
+      <td data-ice="name" class="code" data-depth="0">stream</td>
+      <td data-ice="type" class="code"><span>Stream</span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>the stream to read from</p>
 </td>
@@ -1029,91 +414,18 @@ separators. See <span><a href="function/index.html#static-function-_split">_spli
   <div class="return-params" data-ice="returnParams">
     <h4>Return:</h4>
     <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>*</span></td>
-        
-      </tr>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
     </table>
     <div data-ice="returnProperties">
 </div>
   </div>
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-</div>
-<h2 data-ice="title">Static Private </h2>
-
-<div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="static-function-_split">
-    <span class="access" data-ice="access">private</span>
-    
-    
-    
-    <span data-ice="generator">*</span>
-    <span data-ice="name">_split</span><span data-ice="signature">(stream: <span>Stream</span>, sep: <span>Iterable</span>): <span>Iterator</span></span>
-    <span class="right-info">
-      
-      
-      <span data-ice="source"><span><a href="file/src/tools/split/split.js.html#lineNumber27">source</a></span></span>
-    </span>
-  </h3>
-
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {_split} from &apos;<span><a href="file/src/tools/split/split.js.html#lineNumber27">aureooms-es-parse/src/tools/split/split.js</a></span>&apos;</code></pre></div>
-  
-  
-  <div data-ice="description"><p>Same as <span><a href="function/index.html#static-function-split">split</a></span>, but returns an iterator rather than a stream.</p>
-</div>
-
-  
-
-  <div data-ice="properties"><div data-ice="properties">
-  <h4 data-ice="title">Params:</h4>
-  <table class="params">
-    <thead>
-    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-    
-    <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">stream</td>
-      <td data-ice="type"><span>Stream</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>The input stream.</p>
-</td>
-    </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">sep</td>
-      <td data-ice="type"><span>Iterable</span></td>
-      <td data-ice="appendix"></td>
-      <td data-ice="description"><p>An iterable of separators.</p>
-</td>
-    </tr>
-</tbody>
-  </table>
-</div>
-</div>
-
-  <div class="return-params" data-ice="returnParams">
-    <h4>Return:</h4>
-    <table>
-      <tr>
-        <td class="return-type" data-ice="returnType"><span>Iterator</span></td>
-        
-      </tr>
-    </table>
-    <div data-ice="returnProperties">
-</div>
-  </div>
 
   
 
@@ -1132,7 +444,7 @@ separators. See <span><a href="function/index.html#static-function-_split">_spli
 </div>
 
 <footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
 </footer>
 
 <script src="script/search_index.js"></script>
