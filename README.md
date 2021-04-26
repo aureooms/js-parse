@@ -1,5 +1,5 @@
-# [aureooms/js-parse](https://aureooms.github.io/js-parse)
-Easily parse various input formats. See [documentation](https://aureooms.github.io/js-parse).
+# [aureooms/js-parse](https://make-github-pseudonymous-again.github.io/js-parse)
+Easily parse various input formats. See [documentation](https://make-github-pseudonymous-again.github.io/js-parse).
 
 [![License](https://img.shields.io/github/license/aureooms/js-parse.svg?style=flat)](https://raw.githubusercontent.com/aureooms/js-parse/master/LICENSE)
 [![NPM version](https://img.shields.io/npm/v/@aureooms/js-parse.svg?style=flat)](https://www.npmjs.org/package/@aureooms/js-parse)
@@ -10,4 +10,4 @@ Easily parse various input formats. See [documentation](https://aureooms.github.
 [![Code Climate](https://img.shields.io/codeclimate/github/aureooms/js-parse.svg?style=flat)](https://codeclimate.com/github/aureooms/js-parse)
 [![NPM downloads per month](https://img.shields.io/npm/dm/@aureooms/js-parse.svg?style=flat)](https://www.npmjs.org/package/@aureooms/js-parse)
 [![GitHub issues](https://img.shields.io/github/issues/aureooms/js-parse.svg?style=flat)](https://github.com/aureooms/js-parse/issues)
-[![Documentation](https://aureooms.github.io/js-parse/badge.svg)](https://aureooms.github.io/js-parse/source.html)
+[![Documentation](https://make-github-pseudonymous-again.github.io/js-parse/badge.svg)](https://make-github-pseudonymous-again.github.io/js-parse/source.html)
